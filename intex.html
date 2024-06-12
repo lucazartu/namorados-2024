@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha Difícil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        #pix {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #encontro {
+            background-color: #f44336;
+            color: white;
+        }
+        .result-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+        .result-container.show {
+            display: flex;
+        }
+        .result-box {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #333;
+        }
+        .result-message {
+            font-size: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .melancholic-bg {
+            background-color: #778899;
+        }
+        .outback-bg {
+            background-image: url('https://play-lh.googleusercontent.com/OgmB8fs_nOvRuoq9V3f6Nj2n5FAvyX_muX703aNgmDdnRGeE8LPw7dT8jmNG5Xvro6E');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="main-container">
+        <h1>1 real no pix ou um encontro dos namorados misterioso?</h1>
+        <button id="pix">PIX</button>
+        <button id="encontro">Encontro Misterioso</button>
+    </div>
+    <div id="result-container" class="result-container">
+        <div class="result-box">
+            <p class="result-message"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const pixButton = document.getElementById('pix');
+    const encontroButton = document.getElementById('encontro');
+    const resultContainer = document.getElementById('result-container');
+    const resultMessage = document.querySelector('.result-message');
+
+    pixButton.addEventListener('click', () => {
+        resultMessage.textContent = "Que pena! Você escolheu a opção errada :(";
+        resultContainer.classList.add('show');
+        resultContainer.classList.remove('outback-bg');
+        resultContainer.classList.add('melancholic-bg');
+    });
+
+    encontroButton.addEventListener('click', () => {
+        resultMessage.innerHTML = "Parabéns! Você acabou de adquirir um voucher válido <strong>SOMENTE PARA HOJE</strong> em seu restaurante favorito!<br>Te amo mais que tudo na vida e não ia deixar esse dia passar em branco <3";
+        resultContainer.classList.add('show');
+        resultContainer.classList.remove('melancholic-bg');
+        resultContainer.classList.add('outback-bg');
+    });
+</script>
+
+</body>
+</html>
